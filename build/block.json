@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/bd-blog-grid",
+  "version": "0.1.0",
+  "title": "Bd Blog Grid",
+  "category": "widgets",
+  "description": "Displays posts in grid with optional filters.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "showFeaturedPost": {
+      "type": "boolean"
+    },
+    "showFilters": {
+      "type": "boolean"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "textdomain": "bd-blog-grid",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

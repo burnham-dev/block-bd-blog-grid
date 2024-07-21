@@ -1,0 +1,229 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ $spacer: 50px;
+
+.wp-block-create-block-bd-blog-grid {
+	max-width: var(--wp--style--global--wide-size, none) !important;
+
+	.blog-grid {
+		&-menu {
+			padding-bottom: $spacer;
+
+			fieldset {
+				box-shadow: none;
+				border: 1px solid #d6d6d6;
+				padding: .6rem 2rem 2rem;
+				height: auto;
+				line-height: 1;
+
+				legend {
+					font-family: var(--wp--preset--font-family--heading);
+					padding: 10px;
+					font-size: 1.5rem;
+				}
+
+				.filters-menu {
+					display: flex;
+					column-gap: 20px;
+					flex-wrap: wrap;
+					row-gap: 5px;
+
+					label {
+						font-weight: 400;
+						font-size: 15px;
+						cursor: pointer;
+						display: block;
+						line-height: 1;
+		
+						input {
+							cursor: pointer;
+							position: relative;
+							margin-right: 8px;
+							-webkit-appearance: none;
+							appearance: none;
+							background-color: #fff;
+							font: inherit;
+							width: 16px;
+							height: 16px;
+							border: 1px solid #616264;
+							border-radius: 50%;
+							top: 6px;
+		
+							&:before {
+								content: "";
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								width: 10px;
+								height: 10px;
+								display: block;
+								border-radius: 50%;
+								transform: translate(-50%,-50%);
+								transform-origin: center;
+								transition: 100ms background-color linear;
+								background-color: #fff;
+							}
+		
+							&:checked::before {
+								background-color: #616264;
+							}
+						}
+					}
+				}
+			}
+		}
+	
+		&-results {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: $spacer;
+			row-gap: $spacer;
+			justify-content: flex-start;
+	
+			&-item {
+				width: calc((100% - ($spacer * 2)) / 3 );
+				text-align: left;
+				position: relative;
+	
+				@media all and (max-width: 980px) {
+					width: 100%;
+				}
+	
+				&__date {
+					margin-bottom: 5px;
+					display: block;
+					font-size: .9em;
+				}
+	
+				&__image {
+					border-radius: 12px;
+					box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.11);
+					margin-bottom: calc($spacer / 2);
+					overflow: hidden;
+	
+					img {
+						display: block;
+						width: 100%;
+	
+						@supports (object-fit: cover ) {
+							height: 200px;
+							object-fit: cover;
+						}
+	
+						@supports (aspect-ratio: 16 / 9 ) {
+							height: auto;
+							aspect-ratio: 16 / 9;
+						}
+					}
+				}
+	
+				&__title {
+					margin: 0 0 calc(($spacer / 2) - 10px);
+					padding: 0;
+					flex-grow: 1;
+				}
+			}
+	
+			&-featured {
+				border-radius: 12px;
+				box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.11);
+				overflow: hidden;
+				width: 100%;
+				background-size: cover;
+				background-position: center center;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				min-height: 500px;
+	
+				@media all and (max-width: 980px) {
+					align-items: flex-end;
+				}
+	
+				@media all and (max-width:767px) {
+					min-height: 400px;
+				}
+	
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 2;
+					background: #062844;
+					background-image: linear-gradient(60deg, rgba(3,21,36,1) 0%, rgba(105,59,131,1) 50%, rgba(164,65,122,1) 100%);
+					opacity: .9;
+				}
+	
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+					background: #062844;
+					background-image: linear-gradient(60deg, rgba(3,21,36,1) 0%, rgba(105,59,131,1) 50%, rgba(164,65,122,1) 100%);
+					mix-blend-mode: color;
+				}
+	
+				&__content {
+					display: inline-block;
+					width: calc(100% / 3 + 150px);
+					padding: 50px 80px 50px 100px;
+					text-align: left;
+					z-index: 3;
+					position: relative;
+	
+					@media all and (max-width: 980px) {
+						width: 100%;
+						padding:50px;
+					}
+	
+					@media all and (max-width:767px) {
+						width: 100%;
+					}
+					
+					* {
+						color: #fff;
+					}
+				}
+			}
+	
+		}
+	
+		&-load-more {
+			text-align: center;
+			margin-top: $spacer;
+		}
+	}
+
+	.button {
+        display: inline-block;
+        background: var(--wp--preset--color--contrast, #111111);
+        padding: 12px 35px;
+        color: #fff;
+        border-radius: var(--wp--preset--spacing--20, 20px);
+        border-width: 0;
+        font-weight: 500;
+        transition: all 300ms linear 0s;
+		cursor: pointer;
+	}
+
+	.full-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+    }
+}
